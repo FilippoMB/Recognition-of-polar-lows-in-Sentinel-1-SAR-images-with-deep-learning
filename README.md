@@ -9,7 +9,7 @@ The *Sentinel-1 maritime mesocyclone dataset* is publicly available and can be d
 ----
 ### Installation (with Anaconda)
 
-Create an Anaconda environment using the [environment.yml](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) file.
+Create an Anaconda environment using the [environment.yml](https://github.com/FilippoMB/Recognition-of-polar-lows-in-Sentinel-1-SAR-images-with-deep-learning/blob/main/environment.yml) file.
 
 ```
 conda env create -f environment.yml
