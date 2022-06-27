@@ -5,6 +5,19 @@ This repository contains an example of how to train the deep learning architectu
 
 The *Sentinel-1 maritime mesocyclone dataset* is publicly available and can be downloaded [here](https://dataverse.no/dataset.xhtml?persistentId=doi:10.18710/FV5T9U&version=1.0).
 
+
+----
+### Installation (with Anaconda)
+
+Create an Anaconda environment using the [environment.yml](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) file.
+
+```
+conda env create -f environment.yml
+```
+
+The environment was created on Ubuntu 20.04.
+For more details of how to create and manage an environment, look [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file).
+
 ----
 ### Pretrained models
 
@@ -29,7 +42,7 @@ print("Predicted class: ", pred[0])
 
 ----
 ### Model training from scratch
-If you want to train the deep learning model from scratch take a look at [train_model.py](https://github.com/FilippoMB/Recognition-of-polar-lows-in-Sentinel-1-SAR-images-with-deep-learning/blob/main/train_model.py), which provides a simplified example of how to train the architecture used in our paper. The script downloads automatically the dataset in the ```data/``` folder.
+If you want to train the deep learning model from scratch take a look at [train_model.py](https://github.com/FilippoMB/Recognition-of-polar-lows-in-Sentinel-1-SAR-images-with-deep-learning/blob/main/train_model.py), which provides a simple example of how to train the architecture adopted in our paper. The script downloads automatically the dataset in the ```data/``` folder.
 
 ----
 ### Model interpretability
