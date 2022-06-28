@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 import tensorflow_addons as tfa
 from tensorflow import keras
-from sklearn.metrics import f1_score, accuracy_score, classification_report
+from sklearn.metrics import classification_report
 import architectures
 
 
@@ -87,7 +87,7 @@ model.compile(
 ### 4. Train the model
 epochs = 200
 oversample_steps_per_epoch = np.ceil(2.0*n_neg/batch_size)
-metric_to_monitor = 'val_loss'
+metric_to_monitor = 'loss'
 
 callbacks = [
     keras.callbacks.ModelCheckpoint("models/trained_model.h5", monitor=metric_to_monitor, save_best_only=True),
@@ -99,7 +99,6 @@ training_history = model.fit(
     oversampled_ds,
     epochs=epochs, 
     callbacks=callbacks, 
-    validation_data=test_ds, # for simplicity, in this example we use the test as validation
     steps_per_epoch=oversample_steps_per_epoch,
 )
 
@@ -112,8 +111,4 @@ for x, y in test_ds:
     y_pred.append(model.predict(x).argmax(axis=-1))
 y_true = np.concatenate(y_true, axis=0)
 y_pred = np.concatenate(y_pred, axis=0)
-    
-f1 = f1_score(y_true, y_pred)
-acc = accuracy_score(y_true, y_pred)
-print("F1 score: {:.2f}, Acc: {:.2f}".format(f1, acc)) 
-print(classification_report(y_true, np.round(y_pred)))
+print(classification_report(y_true, y_pred))
